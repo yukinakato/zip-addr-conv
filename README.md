@@ -30,7 +30,7 @@ https://yubin-jusyo.com/
 
 ## 使用技術
 * Go
-* jQuery / Chart.js (パフォーマンス確認画面用)
+* jQuery / Chart.js ([パフォーマンス確認画面](https://yubin-jusyo.com/)用)
 * testing (Go) / Jest (JavaScript)
 * webpack
 * nginx / Let's Encrypt
