@@ -1,0 +1,29 @@
+name: Just testing
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  only-test:
+    name: only test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@v2
+
+      - name: node setup
+        run: npm install
+
+      - name: javascript test
+        run: npm run test
+
+      - name: go vet
+        working-directory: app
+        run: go vet
+
+      - name: go test
+        working-directory: app
+        run: go test -v

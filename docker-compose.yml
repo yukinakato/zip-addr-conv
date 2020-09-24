@@ -1,0 +1,30 @@
+version: "3"
+services:
+  app:
+    image: golang
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./app:/go/src/app
+    working_dir: /go/src/app
+    stdin_open: true
+    tty: true
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./web/dist/:/etc/nginx/html/
+      - ./nginx/:/etc/nginx/conf.d/
+    stdin_open: true
+    tty: true
+  node:
+    image: node
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/home/node/app
+      - /home/node/app/node_modules
+    working_dir: /home/node/app
+    stdin_open: true
+    tty: true

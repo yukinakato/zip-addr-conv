@@ -1,0 +1,53 @@
+name: Test, build and deploy
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  test-build-deploy:
+    name: test build deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@v2
+
+      - name: node setup
+        run: npm install
+
+      - name: javascript test
+        run: npm run test
+
+      - name: go vet
+        working-directory: app
+        run: go vet
+
+      - name: go test
+        working-directory: app
+        run: go test -v
+      
+      - name: build static web files
+        run: npm run build
+
+      - name: build go binary
+        working-directory: app
+        run: go build -o zipaddrconv
+
+      - name: prepare ssh key
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: transfer files to server
+        run: |
+          rsync -rv --delete -e "ssh -p ${{ secrets.SSH_PORT }}" app ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP_ADDRESS }}:~
+          rsync -rv --delete -e "ssh -p ${{ secrets.SSH_PORT }}" web/dist ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP_ADDRESS }}:~
+
+      - name: run server script
+        run: ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP_ADDRESS }} "~/deploy.sh"

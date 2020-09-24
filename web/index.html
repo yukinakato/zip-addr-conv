@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178734907-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-178734907-1');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <title>郵便番号・住所変換くん</title>
+  <meta name="description" content="郵便番号・住所変換くんは、簡単かつ高速に郵便番号や住所を検索、変換できるサービスです。">
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-lg-9 mx-auto">
+      <div class="header">
+        <img src="img/logo.png" alt="logo" class="site-logo">
+        <div class="buttons">
+          <div class="button usage" data-toggle="modal" data-target="#usageModal">
+            <i class="far fa-question-circle"></i>
+            <span class="button-description">使い方</span>
+          </div>
+          <a href="https://forms.gle/1bTXTS3kZgPpmDUX7" target="_blank" rel="noopener noreferrer" class="inquiry-link">
+            <div class="button request">
+              <i class="far fa-envelope"></i>
+              <span class="button-description">ご意見</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <h1 class="site-title mb-3">郵便番号・住所変換くん</h1>
+      <p class="site-description mb-4">
+        郵便番号や住所を検索・変換するサービスです。<br>
+        日本郵便の提供する2020年8月31日付のデータを使用しています。<br>
+        詳細な使用方法は画面右上の使い方リンクをご参照下さい。<br>
+      </p>
+      <div class="search-control mb-4">
+        <input type="search" class="search-form form-control mb-3" placeholder="郵便番号や住所を入力..." maxlength="50" autofocus>
+        <label class="mr-2"><input type="checkbox" class="pref-limit mr-2">検索結果を限定</label>
+        <select class="pref-select" disabled>
+          <option value="1">北海道</option>
+          <option value="2">青森県</option>
+          <option value="3">岩手県</option>
+          <option value="4">宮城県</option>
+          <option value="5">秋田県</option>
+          <option value="6">山形県</option>
+          <option value="7">福島県</option>
+          <option value="8">茨城県</option>
+          <option value="9">栃木県</option>
+          <option value="10">群馬県</option>
+          <option value="11">埼玉県</option>
+          <option value="12">千葉県</option>
+          <option value="13">東京都</option>
+          <option value="14">神奈川県</option>
+          <option value="15">新潟県</option>
+          <option value="16">富山県</option>
+          <option value="17">石川県</option>
+          <option value="18">福井県</option>
+          <option value="19">山梨県</option>
+          <option value="20">長野県</option>
+          <option value="21">岐阜県</option>
+          <option value="22">静岡県</option>
+          <option value="23">愛知県</option>
+          <option value="24">三重県</option>
+          <option value="25">滋賀県</option>
+          <option value="26">京都府</option>
+          <option value="27">大阪府</option>
+          <option value="28">兵庫県</option>
+          <option value="29">奈良県</option>
+          <option value="30">和歌山県</option>
+          <option value="31">鳥取県</option>
+          <option value="32">島根県</option>
+          <option value="33">岡山県</option>
+          <option value="34">広島県</option>
+          <option value="35">山口県</option>
+          <option value="36">徳島県</option>
+          <option value="37">香川県</option>
+          <option value="38">愛媛県</option>
+          <option value="39">高知県</option>
+          <option value="40">福岡県</option>
+          <option value="41">佐賀県</option>
+          <option value="42">長崎県</option>
+          <option value="43">熊本県</option>
+          <option value="44">大分県</option>
+          <option value="45">宮崎県</option>
+          <option value="46">鹿児島県</option>
+          <option value="47">沖縄県</option>
+        </select>
+      </div>
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <nav class="navbar justify-content-center">
+    <span>© 2020 郵便番号・住所変換くん</span>&nbsp;
+    <a href="/terms">-利用規約-</a>
+  </nav>
+
+  <div class="modal fade" id="usageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">当サイトの使い方</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            郵便番号や住所を入力すると、入力内容を含む住所を最大50件表示します。<br>
+            住所はよみがなで検索することもできます。<br>
+            スペースで区切ることにより、複数の検索条件を指定することができます。
+            この場合、全ての条件を含む結果のみ出力します。<br>
+            「検索結果を限定」にチェックを入れると指定した都道府県に絞り込んで検索を行います。<br>
+          </p>
+          <p class="input-examples">
+            入力例:<br>
+            「1050011」「あらしやま」「兵庫　神戸」<br>
+          </p>
+          <p>
+            検索結果の郵便番号は日本郵便ホームページへのリンクになっており、最終的な確認にご利用いただけます。
+          </p>
+          <br>
+          <p>
+            <i class="far fa-comment-dots"></i>&nbsp;検索のコツ<br>
+            該当する件数が50件を超える場合、目的の住所が表示されない場合があります。<br>
+            より詳しいキーワードで検索を行うことで目的の結果が得られる可能性が高まります。<br>
+          </p>
+          <br>
+          <p>
+            <i class="far fa-envelope"></i>&nbsp;ご意見募集中<br>
+            当サイトへのご意見・ご感想を画面右上のご意見リンクからお送りください。
+          </p>
+          <br>
+          <p>
+            <i class="far fa-clock"></i></i>&nbsp;更新履歴<br>
+            2020年9月22日　サイトオープン<br>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

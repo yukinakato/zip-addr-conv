@@ -1,0 +1,135 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  overflow-y: scroll;
+}
+
+.error-body {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  font-family: "Noto Sans JP", sans-serif;
+  min-height: 85vh;
+}
+
+.header {
+  display: flex;
+  padding: 30px 0 18px 0;
+  justify-content: space-between;
+
+  img.site-logo {
+    width: 90px;
+    align-self: flex-start;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+
+    .button {
+      font-size: 21px;
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      color: #444444;
+      border: none;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+
+      &.usage {
+        background-color: pink;
+      }
+
+      &.request {
+        background-color: lightgreen;
+      }
+
+      .button-description {
+        font-size: 10px;
+        align-self: center;
+      }
+    }
+
+    .inquiry-link {
+      height: 50px;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.site-title {
+  font-family: "Kosugi Maru", sans-serif;
+  font-size: calc(min(7vw, 32px));
+}
+
+.site-description {
+  font-size: 15px;
+  color: #3a3a3a;
+}
+
+.search-form {
+  height: 50px;
+}
+
+.input-examples{
+  background-color: #f4f4f4;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.search-results {
+  margin-bottom: 60px;
+
+  .address {
+    border-top: 1px solid #ebebeb;
+    padding: 10px 0;
+    display: flex;
+    span.matched {
+      color: #dd0000;
+    }
+
+    .zipcode {
+      align-self: center;
+      margin-right: 35px;
+      font-size: 20px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .kana {
+      font-size: 13px;
+    }
+
+    .kanji {
+      font-size: 19px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .search-results {
+    .address {
+      flex-direction: column;
+      .zipcode {
+        align-self: flex-start;
+      }
+    }
+  }
+}
