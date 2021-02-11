@@ -31,13 +31,13 @@ https://yubin-jusyo.com/
 ## 使用技術
 * Go
 * jQuery / Chart.js ([パフォーマンス確認画面](https://yubin-jusyo.com/stat)用)
+* Ruby
 * testing (Go) / Jest (JavaScript)
 * webpack
 * nginx / Let's Encrypt
 * AWS Lightsail / Route 53
 * GitHub Actions
 * Docker Compose (開発用環境)
-* Ruby
 
 ## 今後の改修予定
 * 検索がワーストケースで 10 ms 前後かかっているため、高速化したい
