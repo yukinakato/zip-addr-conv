@@ -37,9 +37,8 @@ https://yubin-jusyo.com/
 * AWS Lightsail / Route 53
 * GitHub Actions
 * Docker Compose (開発用環境)
-* Excel VBA
+* Ruby
 
 ## 今後の改修予定
-* 脱 VBA (norm パッケージを使用する)
 * 検索がワーストケースで 10 ms 前後かかっているため、高速化したい
 * ワンクリックでクリップボードにコピーする機能の追加
