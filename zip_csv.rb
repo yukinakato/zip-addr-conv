@@ -26,8 +26,6 @@ def ConvertWideAndNarrow(str)
   tmp = tmp.gsub(/>/, "＞")
 end
 
-Dir::chdir(Dir::home + "/Desktop")
-
 client = Net::HTTP.new("www.post.japanpost.jp", 443)
 client.use_ssl = true
 body = client.get("/zipcode/dl/kogaki/zip/ken_all.zip").body
@@ -49,7 +47,7 @@ all = CSV.generate do |csv|
   end
 end
 
-File.open("all.csv", "wb") do |f|
+File.open("app/all.csv", "wb") do |f|
   f.write(all)
 end
 
